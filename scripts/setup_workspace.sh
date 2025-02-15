@@ -15,7 +15,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 pushd $DIR/../..
 
 # Setup a Vitis workspace
-/opt/Xilinx/Vitis/2021.1/bin/xsct -quiet /home/can/my_github/Vitis_Vivado_Programlama/setup.tcl $xsa $ws
+/opt/Xilinx/Vitis/2021.1/bin/xsct -quiet /home/can/my_github/Zybo-Vivado-Vitis/setup.tcl $xsa $ws
 cp Debugger_* $ws/sw
 
 popd
