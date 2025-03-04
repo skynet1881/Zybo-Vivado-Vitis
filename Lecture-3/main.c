@@ -5,7 +5,7 @@
 #include "xil_printf.h"
 
 // Define Zynq GIC IRQ ID (PL-to-PS Interrupt ID) - Usually 61 for GPIO
-#define GPIO_INTR_ID    61
+#define GPIO_INTR_ID    XPAR_FABRIC_AXI_GPIO_BTN_IP2INTC_IRPT_INTR
 
 // GPIO Instance
 XGpio GpioBtn;
