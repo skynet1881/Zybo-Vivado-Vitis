@@ -4,7 +4,7 @@
 #include "xil_printf.h"
 
 #define UART_DEVICE_ID  XPAR_PS7_UART_1_DEVICE_ID
-#define INTC_DEVICE_ID  XPAR_SCUGIC_SINGLE_DEVICE_ID
+#define INTC_DEVICE_ID  XPAR_SCUGIC_0_DEVICE_ID
 #define UART_INT_ID     XPAR_XUARTPS_1_INTR
 
 XUartPs Uart;       // UART instance
