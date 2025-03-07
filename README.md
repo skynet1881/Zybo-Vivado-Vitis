@@ -9,3 +9,9 @@ which vitis
 
 # Create workspace with Vitis
 ./scripts/setup_workspace.sh xsa-file project-name
+
+# Install gtkterm
+$ sudo apt install gtkterm
+
+# Launch gtkterm
+$ sudo gtkterm
