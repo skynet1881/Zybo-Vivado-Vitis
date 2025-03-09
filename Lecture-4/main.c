@@ -29,14 +29,14 @@ void UartRecvHandler(void *CallBackRef, u32 Event, unsigned int EventData) {
 // ✅ FIXED: UART Initialization
 int SetupUart() {
     XUartPs_Config *Config;
-    
+
     // Lookup configuration
     Config = XUartPs_LookupConfig(UART_DEVICE_ID);
     if (!Config) {
         xil_printf("UART Config lookup failed\r\n");
         return XST_FAILURE;
     }
-    
+
     // Initialize the UART driver
     int Status = XUartPs_CfgInitialize(&Uart, Config, Config->BaseAddress);
     if (Status != XST_SUCCESS) {
@@ -54,8 +54,7 @@ int SetupUart() {
     XUartPs_SetHandler(&Uart, UartRecvHandler, &Uart);
 
     u32  IntrMask =
-    XUARTPS_IXR_TOUT | XUARTPS_IXR_PARITY | XUARTPS_IXR_FRAMING |
-    XUARTPS_IXR_OVER | XUARTPS_IXR_TXEMPTY | XUARTPS_IXR_RXFULL |
+    XUARTPS_IXR_TOUT | XUARTPS_IXR_OVER | XUARTPS_IXR_RXFULL |
     XUARTPS_IXR_RXOVR;
 
     XUartPs_SetInterruptMask(&Uart, IntrMask);
@@ -66,7 +65,7 @@ int SetupUart() {
 // ✅ FIXED: Interrupt Controller Setup
 int SetupInterrupts() {
     XScuGic_Config *IntcConfig;
-    
+
     // Lookup interrupt controller config
     IntcConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
     if (!IntcConfig) {
@@ -121,7 +120,7 @@ int main() {
 
     while (1)// Keep running
     {
-    	if (XUartPs_IsReceiveData(Uart.Config.BaseAddress)) 
+    	if (XUartPs_IsReceiveData(Uart.Config.BaseAddress))
         {
     	        xil_printf("Polling Received: %c\r\n", XUartPs_RecvByte(Uart.Config.BaseAddress));
         }
